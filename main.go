@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"regexp"
+	"strconv"
 )
 
 func main() {
@@ -28,6 +29,16 @@ func main() {
 		}
 	}
 
-	fmt.Println("El numero insertado es correcto: ", binaryCode)
+	decimal, err := strconv.ParseInt(binaryCode, 2, 64)
 
+	if err != nil {
+		fmt.Println("error: ", err)
+		os.Exit(1)
+	}
+
+	fmt.Println("-------------------------------")
+	fmt.Println("El numero insertado es correcto")
+	fmt.Println("-------------------------------")
+	fmt.Println("Numero binario: ", binaryCode)
+	fmt.Println("Numero decimal: ", decimal)
 }
